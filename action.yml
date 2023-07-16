@@ -6,7 +6,7 @@ inputs:
   version-file:
     description: "File containing the ecspresso version. Example: .ecspresso-version"
     required: false
-  github-token:
+  token:
     description: "The token used when calling GitHub API"
     required: false
     default: ${{ github.token }}
@@ -15,7 +15,7 @@ runs:
   steps:
     - shell: bash
       env:
-        github_token: ${{ inputs.github-token }}
+        github_token: ${{ inputs.token }}
       run: |
         set -e
         VERSION="${{ inputs.version }}"
